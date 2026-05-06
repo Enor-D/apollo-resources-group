@@ -14,7 +14,10 @@ import {
   Shield,
   TrendingUp,
   Unlock,
-  Zap
+  Zap,
+  BarChart3,
+  FileText,
+  Activity
 } from "lucide-react";
 
 type Lang = "en" | "ru";
@@ -25,7 +28,7 @@ const copy = {
     heroKicker: "ASSET MANAGEMENT • COMMODITIES TRADING • BROWNFIELD INVESTMENTS • DEAL FINANCING",
     heroTitle: "Building Strategic Value Across Resources, Energy & Industrial Technologies",
     heroText:
-      "Apollo Resources Group is a strategic asset management and resources holding operating across Central Asia, CIS and the Middle East.",
+      "Apollo Resources Group is a strategic asset management and resources holding operating across Switzerland, the UAE and Central Asia.",
     explore: "Explore Group",
     investor: "Investor Access",
     overviewTitle: "A vertically integrated resource-backed platform",
@@ -33,9 +36,9 @@ const copy = {
       "The Group combines commodities trading, mining assets, technical operations, additive manufacturing and deal financing into one industrial capital platform.",
     numbers: [
       ["3", "Core regions"],
-      ["21", "Team members"],
-      ["1.5M+", "Tons Cu reserves across key copper assets"],
-      ["2024", "Mining & processing development start"]
+      ["127", "Team members"],
+      ["100+ mln", "AUM"],
+      ["2013", "Year of Foundation"]
     ],
     structureTitle: "Group Structure",
     structureText:
@@ -49,13 +52,12 @@ const copy = {
     philosophyTitle: "Investment Philosophy",
     philosophyText:
       "We pursue resource-backed opportunities where capital, operating discipline and strategic partnerships can unlock long-term value.",
-    investorTitle: "Private Investor Section",
+    investorTitle: "Investor Access",
     investorText:
-      "Access portfolio updates, corporate materials, transaction teasers, reports and confidential investor documents.",
+      "A multi-level investor environment with public market intelligence, private portfolio materials and restricted transaction data rooms.",
     passwordPlaceholder: "Enter investor password",
     unlock: "Unlock",
-    lockedNote:
-      "Demo password: APOLLO2026. For production, connect Supabase, NextAuth or Vercel authentication.",
+    lockedNote: "",
     contactTitle: "Global Presence",
     contactText:
       "Operating across Switzerland, UAE and Central Asia.",
@@ -66,7 +68,7 @@ const copy = {
     heroKicker: "УПРАВЛЕНИЕ АКТИВАМИ • ТОРГОВЛЯ СЫРЬЕМ • BROWNFIELD-ИНВЕСТИЦИИ • ФИНАНСИРОВАНИЕ СДЕЛОК",
     heroTitle: "Создаем стратегическую стоимость в ресурсах, энергетике и промышленных технологиях",
     heroText:
-      "Apollo Resources Group — стратегический холдинг по управлению активами и ресурсами с операциями в Центральной Азии, СНГ и на Ближнем Востоке.",
+      "Apollo Resources Group — стратегический холдинг по управлению активами и ресурсами с операциями в Switzerland, UAE и Central Asia.",
     explore: "О группе",
     investor: "Доступ инвестора",
     overviewTitle: "Вертикально интегрированная платформа, обеспеченная ресурсными активами",
@@ -74,9 +76,9 @@ const copy = {
       "Группа объединяет торговлю сырьевыми товарами, горнодобывающие активы, технические операции, аддитивное производство и финансирование сделок в единую промышленно-инвестиционную платформу.",
     numbers: [
       ["3", "Ключевых региона"],
-      ["21", "Член команды"],
-      ["1.5M+", "Тонн запасов Cu по ключевым медным активам"],
-      ["2024", "Старт развития добычи и переработки"]
+      ["127", "Членов команды"],
+      ["100+ mln", "AUM"],
+      ["2013", "Год основания"]
     ],
     structureTitle: "Структура группы",
     structureText:
@@ -86,17 +88,16 @@ const copy = {
       "Apollo Resources Group направляет капитал и операционные компетенции в ресурсные, промышленные и стратегические возможности.",
     assetsTitle: "Горнодобывающие активы и переработка",
     assetsText:
-      "Медные brownfield-активы и перерабатывающая инфраструктура в Казахстане.",
+      "Медные brownfield-активы и перерабатывающая инфраструктура в Kazakhstan.",
     philosophyTitle: "Инвестиционная философия",
     philosophyText:
       "Мы фокусируемся на ресурсно обеспеченных возможностях, где капитал, операционная дисциплина и стратегические партнерства раскрывают долгосрочную стоимость.",
-    investorTitle: "Закрытый раздел для инвесторов",
+    investorTitle: "Доступ для инвесторов",
     investorText:
-      "Доступ к обновлениям портфеля, корпоративным материалам, тизерам сделок, отчетам и конфиденциальным документам.",
+      "Многоуровневая investor-зона с открытой рыночной аналитикой, закрытыми материалами по портфелю и приватными deal room-разделами.",
     passwordPlaceholder: "Введите пароль инвестора",
     unlock: "Открыть",
-    lockedNote:
-      "Демо-пароль: APOLLO2026. Для production нужно подключить Supabase, NextAuth или Vercel authentication.",
+    lockedNote: "",
     contactTitle: "Глобальное присутствие",
     contactText:
       "Операции в Швейцарии, ОАЭ и Центральной Азии.",
@@ -107,39 +108,39 @@ const copy = {
 const subsidiaries = [
   {
     name: "Apollo Resources AG",
-    place: "Switzerland",
+    place: "Швейцария",
     descEn: "Strategic holding and international corporate platform.",
     descRu: "Стратегическая холдинговая и международная корпоративная платформа."
   },
   {
     name: "Apollo Resources DMCC",
-    place: "Dubai, UAE",
+    place: "Дубай, ОАЭ",
     descEn: "Commodity trading hub specialized in energy resources, base and minor metals.",
-    descRu: "Торговый хаб в ОАЭ по энергетическим ресурсам, базовым и малым металлам."
+    descRu: "Торговый хаб в UAE по энергетическим ресурсам, базовым и малым металлам."
   },
   {
-    name: "Additech LLP",
-    place: "Central Asia",
-    descEn: "Additive manufacturing center in Central Asia.",
-    descRu: "Центр аддитивного производства в Центральной Азии."
+    name: "Argelum LLP",
+    place: "Алматы, Казахстан",
+    descEn: "Local office focused on commodities trading and private equity.",
+    descRu: "Локальный офис с фокусом на торговлю сырьем и private equity."
   },
   {
-    name: "Drum Tech LLP",
-    place: "Kazakhstan",
-    descEn: "Technical services company managing company technical operations.",
-    descRu: "Техническая сервисная компания, управляющая операционными процессами."
+    name: "Additech Tech LLP",
+    place: "Центральная Азия",
+    descEn: "Advanced industrial and additive technologies platform in Central Asia.",
+    descRu: "Платформа промышленных и аддитивных технологий в Central Asia."
   },
   {
     name: "Sunkaruya LLP",
-    place: "Karaganda region",
-    descEn: "Prominent copper mine in Karaganda region.",
-    descRu: "Медный рудник в Карагандинской области."
+    place: "Карагандинская область",
+    descEn: "Prominent copper mining project in Karaganda region.",
+    descRu: "Медный проект в Karaganda region."
   },
   {
     name: "Apollo Resources Kazakhstan LLP",
     place: "Kazakhstan",
-    descEn: "Local copper mines operator owning Don and Spasskoye mines.",
-    descRu: "Оператор медных рудников в Казахстане, владеющий Don и Spasskoye."
+    descEn: "Local copper mines operator managing strategic mining assets.",
+    descRu: "Оператор медных активов и стратегических горнодобывающих проектов."
   },
   {
     name: "Geodrill LLP",
@@ -148,10 +149,10 @@ const subsidiaries = [
     descRu: "Буровая компания, работающая в Республике Казахстан."
   },
   {
-    name: "Argelum LLP",
-    place: "Almaty, Kazakhstan",
-    descEn: "Local office focused on commodities trading and private equity.",
-    descRu: "Локальный офис с фокусом на торговлю сырьем и private equity."
+    name: "Drum Tech LLP",
+    place: "Kazakhstan",
+    descEn: "Technical services company managing company technical operations.",
+    descRu: "Техническая сервисная компания, управляющая операционными процессами."
   }
 ];
 
@@ -172,22 +173,22 @@ const focusRu = [
 const assets = [
   {
     name: "Sunkaruya Copper Mine",
-    location: "Karaganda region",
+    location: "Карагандинская область",
     stats: ["Copper", "Drilling operations ongoing", "Exploration stage"]
   },
   {
     name: "Spasskoye Copper Mine",
-    location: "Akmola region",
+    location: "Акмолинская область",
     stats: ["Copper", "Exploration plan preparation", "Development stage"]
   },
   {
     name: "Don Copper Mine",
-    location: "Karaganda region",
+    location: "Карагандинская область",
     stats: ["Copper", "Geophysical works starting", "Exploration stage"]
   },
   {
     name: "Karaganda Processing Site",
-    location: "Karaganda city",
+    location: "г. Караганда",
     stats: ["Copper processing", "Heap leaching pond", "20–60 tons/month concentrate"]
   }
 ];
@@ -199,6 +200,51 @@ const portfolioDocs = [
   "Transaction Teasers",
   "Quarterly Reports",
   "Confidential Data Room"
+];
+
+const marketQuotes = [
+  { name: "Copper", ticker: "COMEX: HG", price: "$4.62", change: "+1.24%", group: "Metals" },
+  { name: "Gold", ticker: "XAU/USD", price: "$2,392", change: "+0.41%", group: "Metals" },
+  { name: "Silver", ticker: "XAG/USD", price: "$31.14", change: "-0.22%", group: "Metals" },
+  { name: "Platinum", ticker: "XPT/USD", price: "$1,037", change: "+0.19%", group: "Metals" },
+  { name: "Aluminum", ticker: "LME: ALI", price: "$2,545", change: "+0.63%", group: "Metals" },
+  { name: "Nickel", ticker: "LME: NICKEL", price: "$19,260", change: "-0.38%", group: "Metals" },
+  { name: "Brent Oil", ticker: "UKOIL", price: "$82.50", change: "+0.77%", group: "Energy" },
+  { name: "WTI Oil", ticker: "USOIL", price: "$78.14", change: "+0.52%", group: "Energy" },
+  { name: "Natural Gas", ticker: "NATGAS", price: "$2.68", change: "-1.08%", group: "Energy" },
+  { name: "S&P 500", ticker: "SPX", price: "5,218", change: "+0.34%", group: "Indices" },
+  { name: "Nasdaq 100", ticker: "NDX", price: "18,240", change: "+0.58%", group: "Indices" },
+  { name: "Dow Jones", ticker: "DJI", price: "39,112", change: "+0.21%", group: "Indices" },
+  { name: "DXY", ticker: "DXY", price: "104.21", change: "-0.15%", group: "FX" },
+  { name: "NVIDIA", ticker: "NVDA", price: "$910.18", change: "+2.10%", group: "Mega Cap" },
+  { name: "Apple", ticker: "AAPL", price: "$192.44", change: "-0.18%", group: "Mega Cap" },
+  { name: "Microsoft", ticker: "MSFT", price: "$421.90", change: "+0.47%", group: "Mega Cap" },
+  { name: "Amazon", ticker: "AMZN", price: "$184.12", change: "+0.31%", group: "Mega Cap" },
+  { name: "Alphabet", ticker: "GOOGL", price: "$171.55", change: "+0.28%", group: "Mega Cap" }
+];
+
+const demoModules = [
+  "Metals watchlist",
+  "Energy resources",
+  "Major indices",
+  "Mega-cap equities",
+  "Market chart preview",
+  "Public macro snapshot"
+];
+
+const lockedModules = [
+  {
+    title: "Investor Access",
+    desc: "Portfolio updates, corporate presentations, asset materials and quarterly reporting.",
+    level: "Private",
+    icon: FileText
+  },
+  {
+    title: "Partner Deal Room",
+    desc: "Transaction teasers, financial models, DD materials and restricted deal documentation.",
+    level: "Restricted",
+    icon: Shield
+  }
 ];
 
 function Section({ id, children, className = "" }: { id?: string; children: React.ReactNode; className?: string }) {
@@ -251,7 +297,7 @@ export default function Home() {
             {t.nav.map((item, index) => (
               <a
                 key={item}
-                href={["#portfolio", "#assets", "#philosophy", "#investor"][index]}
+                href={["#group-structure", "#assets", "#philosophy", "#investor"][index]}
                 className="transition hover:text-white"
               >
                 {item}
@@ -296,7 +342,7 @@ export default function Home() {
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-white/65 md:text-xl">{t.heroText}</p>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <a href="#group" className="inline-flex items-center justify-center gap-2 rounded-full bg-copper-500 px-6 py-4 text-sm font-bold text-white shadow-copper transition hover:bg-copper-700">
+              <a href="#group-structure" className="inline-flex items-center justify-center gap-2 rounded-full bg-copper-500 px-6 py-4 text-sm font-bold text-white shadow-copper transition hover:bg-copper-700">
                 {t.explore} <ArrowRight size={17} />
               </a>
               <a href="#investor" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-6 py-4 text-sm font-bold text-white/85 transition hover:border-white/35 hover:text-white">
@@ -358,7 +404,7 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section id="portfolio" className="pt-0">
+      <Section id="group-structure" className="pt-0">
         <Label>{t.structureTitle}</Label>
         <div className="mb-10 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
@@ -468,45 +514,160 @@ export default function Home() {
 
       <Section id="investor">
         <Label>{t.investorTitle}</Label>
-        <div className="grid gap-8 md:grid-cols-[.95fr_1.05fr]">
+        <div className="grid gap-8 md:grid-cols-[.9fr_1.1fr]">
           <div>
             <h2 className="text-4xl font-semibold tracking-[-0.04em] md:text-6xl">{t.investorTitle}</h2>
             <p className="mt-5 text-lg leading-8 text-white/62">{t.investorText}</p>
-            <p className="mt-5 text-sm leading-6 text-white/38">{t.lockedNote}</p>
+
+            <div className="mt-8 grid gap-3">
+              {[
+                ["Demo Access", lang === "en" ? "Open market dashboard" : "Открытая market-панель", Unlock],
+                ["Investor Access", lang === "en" ? "Private investor materials" : "Закрытые investor-материалы", Lock],
+                ["Partner Deal Room", lang === "en" ? "Restricted transaction room" : "Приватный deal room", Shield]
+              ].map(([title, desc, Icon]) => (
+                <div key={title as string} className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[.035] p-4">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-copper-500/10 text-copper-100">
+                    <Icon size={20} />
+                  </div>
+                  <div>
+                    <div className="font-semibold">{title as string}</div>
+                    <div className="text-sm text-white/45">{desc as string}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="glass rounded-[2rem] p-6 md:p-8">
-            {!unlocked ? (
-              <div>
-                <Lock className="mb-8 text-copper-100" size={36} />
-                <input
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  onKeyDown={(e) => e.key === "Enter" && handleUnlock()}
-                  placeholder={t.passwordPlaceholder}
-                  type="password"
-                  className="w-full rounded-2xl border border-white/10 bg-black/40 px-5 py-4 text-white outline-none transition placeholder:text-white/28 focus:border-copper-300/50"
-                />
-                <button
-                  onClick={handleUnlock}
-                  className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-white px-5 py-4 font-bold text-black transition hover:bg-copper-100"
-                >
-                  <Unlock size={18} /> {t.unlock}
-                </button>
+
+          <div className="glass overflow-hidden rounded-[2rem]">
+            <div className="border-b border-white/10 p-5">
+              <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                <div>
+                  <div className="flex items-center gap-2 text-sm uppercase tracking-[.24em] text-copper-100">
+                    <Activity size={16} /> Demo Access
+                  </div>
+                  <h3 className="mt-2 text-2xl font-semibold">
+                    {lang === "en" ? "Market Intelligence Dashboard" : "Панель рыночных котировок"}
+                  </h3>
+                </div>
+                <span className="w-fit rounded-full bg-copper-500/10 px-3 py-1 text-xs uppercase tracking-[.2em] text-copper-100">
+                  {lang === "en" ? "Open Demo" : "Открытая демо"}
+                </span>
               </div>
-            ) : (
-              <div>
-                <Unlock className="mb-6 text-copper-100" size={36} />
-                <h3 className="text-2xl font-semibold">Investor Data Room</h3>
-                <div className="mt-6 grid gap-3">
-                  {portfolioDocs.map((doc) => (
-                    <div key={doc} className="flex items-center justify-between rounded-2xl border border-white/10 bg-black/25 p-4">
-                      <span className="text-white/72">{doc}</span>
-                      <span className="rounded-full bg-copper-500/10 px-3 py-1 text-xs text-copper-100">Private</span>
+            </div>
+
+            <div className="grid gap-5 p-5 lg:grid-cols-[1.05fr_.95fr]">
+              <div className="rounded-[1.5rem] border border-white/10 bg-black/25 p-5">
+                <div className="mb-5 flex items-center justify-between">
+                  <div>
+                    <div className="text-xs uppercase tracking-[.22em] text-white/38">
+                      {lang === "en" ? "Watchlist" : "Список котировок"}
+                    </div>
+                    <div className="mt-1 text-lg font-semibold">
+                      {lang === "en" ? "Metals • Energy • Indices • Mega Caps" : "Металлы • Энергия • Индексы • Mega Cap"}
+                    </div>
+                  </div>
+                  <TrendingUp className="text-copper-100" />
+                </div>
+
+                <div className="max-h-[430px] overflow-hidden rounded-2xl border border-white/10">
+                  {marketQuotes.map((row, index) => (
+                    <div
+                      key={`${row.name}-${row.ticker}`}
+                      className={`grid grid-cols-[1fr_.8fr_.7fr_.6fr] items-center gap-3 px-4 py-3 text-sm ${
+                        index !== marketQuotes.length - 1 ? "border-b border-white/10" : ""
+                      }`}
+                    >
+                      <div>
+                        <div className="font-semibold text-white/85">{row.name}</div>
+                        <div className="text-xs text-white/35">{row.group}</div>
+                      </div>
+                      <div className="text-white/45">{row.ticker}</div>
+                      <div className="text-right font-semibold text-white/76">{row.price}</div>
+                      <div className={`text-right font-semibold ${row.change.startsWith("+") ? "text-copper-100" : "text-white/45"}`}>
+                        {row.change}
+                      </div>
                     </div>
                   ))}
                 </div>
               </div>
-            )}
+
+              <div className="grid gap-5">
+                <div className="relative min-h-[260px] overflow-hidden rounded-[1.5rem] border border-white/10 bg-black/25 p-5">
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_15%,rgba(184,111,54,.18),transparent_34%)]" />
+                  <div className="relative">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <div className="text-xs uppercase tracking-[.22em] text-white/38">
+                          {lang === "en" ? "Chart Preview" : "Превью графика"}
+                        </div>
+                        <div className="mt-1 text-xl font-semibold">Copper / Macro Basket</div>
+                      </div>
+                      <BarChart3 className="text-copper-100" />
+                    </div>
+
+                    <div className="mt-8 h-32">
+                      <svg viewBox="0 0 420 140" className="h-full w-full">
+                        <defs>
+                          <linearGradient id="area" x1="0" x2="0" y1="0" y2="1">
+                            <stop offset="0%" stopColor="rgba(184,111,54,.45)" />
+                            <stop offset="100%" stopColor="rgba(184,111,54,0)" />
+                          </linearGradient>
+                        </defs>
+                        <path d="M0 104 C40 88, 64 98, 96 78 C132 55, 162 72, 192 48 C224 22, 250 60, 284 42 C320 22, 358 32, 420 18 L420 140 L0 140 Z" fill="url(#area)" />
+                        <path d="M0 104 C40 88, 64 98, 96 78 C132 55, 162 72, 192 48 C224 22, 250 60, 284 42 C320 22, 358 32, 420 18" fill="none" stroke="#d89b64" strokeWidth="3" />
+                      </svg>
+                    </div>
+
+                    <p className="mt-5 text-sm leading-6 text-white/52">
+                      {lang === "en"
+                        ? "Demo version can later be connected to TradingView widgets or a licensed market data API."
+                        : "Демо-версию позже можно подключить к TradingView widgets или лицензированному API рыночных данных."}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="rounded-[1.5rem] border border-white/10 bg-black/25 p-5">
+                  <div className="mb-4 text-xs uppercase tracking-[.22em] text-white/38">
+                    {lang === "en" ? "Available in Demo" : "Доступно в демо"}
+                  </div>
+                  <div className="grid grid-cols-2 gap-3">
+                    {demoModules.map((module) => (
+                      <div key={module} className="rounded-xl border border-white/10 bg-white/[.035] p-3 text-sm text-white/62">
+                        {module}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid gap-4 border-t border-white/10 p-5 md:grid-cols-2">
+              {lockedModules.map((module) => {
+                const Icon = module.icon;
+                return (
+                  <div key={module.title} className="rounded-[1.5rem] border border-white/10 bg-black/25 p-5">
+                    <div className="flex items-start justify-between gap-4">
+                      <Icon className="text-copper-100" />
+                      <span className="rounded-full border border-white/10 px-3 py-1 text-xs uppercase tracking-[.18em] text-white/38">
+                        {module.level}
+                      </span>
+                    </div>
+                    <h4 className="mt-6 text-xl font-semibold">{module.title}</h4>
+                    <p className="mt-3 text-sm leading-6 text-white/52">{module.desc}</p>
+                    <div className="mt-5 flex items-center gap-3">
+                      <input
+                        placeholder={t.passwordPlaceholder}
+                        type="password"
+                        className="min-w-0 flex-1 rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-sm text-white outline-none placeholder:text-white/25 focus:border-copper-300/50"
+                      />
+                      <button className="rounded-xl bg-white px-4 py-3 text-sm font-bold text-black transition hover:bg-copper-100">
+                        {t.unlock}
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </Section>
@@ -520,7 +681,7 @@ export default function Home() {
               <p className="mt-5 max-w-3xl text-lg leading-8 text-white/62">{t.contactText}</p>
             </div>
             <div className="grid gap-3">
-              {["Geneva, Switzerland", "Dubai, UAE", "Central Asia"].map((office) => (
+              {["Женева, Швейцария", "Дубай, ОАЭ", "Центральная Азия"].map((office) => (
                 <div key={office} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-black/20 p-4">
                   <MapPin className="text-copper-100" size={18} />
                   <span>{office}</span>
