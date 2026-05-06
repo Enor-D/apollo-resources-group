@@ -108,49 +108,57 @@ const copy = {
 const subsidiaries = [
   {
     name: "Apollo Resources AG",
-    place: "Швейцария",
+    placeEn: "Switzerland",
+    placeRu: "Швейцария",
     descEn: "Strategic holding and international corporate platform.",
     descRu: "Стратегическая холдинговая и международная корпоративная платформа."
   },
   {
     name: "Apollo Resources DMCC",
-    place: "Дубай, ОАЭ",
+    placeEn: "Dubai, UAE",
+    placeRu: "Дубай, ОАЭ",
     descEn: "Commodity trading hub specialized in energy resources, base and minor metals.",
-    descRu: "Торговый хаб в UAE по энергетическим ресурсам, базовым и малым металлам."
+    descRu: "Торговый хаб в ОАЭ по энергетическим ресурсам, базовым и малым металлам."
   },
   {
     name: "Argelum LLP",
-    place: "Алматы, Казахстан",
+    placeEn: "Almaty, Kazakhstan",
+    placeRu: "Алматы, Казахстан",
     descEn: "Local office focused on commodities trading and private equity.",
     descRu: "Локальный офис с фокусом на торговлю сырьем и private equity."
   },
   {
     name: "Additech Tech LLP",
-    place: "Центральная Азия",
+    placeEn: "Central Asia",
+    placeRu: "Центральная Азия",
     descEn: "Advanced industrial and additive technologies platform in Central Asia.",
-    descRu: "Платформа промышленных и аддитивных технологий в Central Asia."
+    descRu: "Платформа промышленных и аддитивных технологий в Центральной Азии."
   },
   {
     name: "Sunkaruya LLP",
-    place: "Карагандинская область",
+    placeEn: "Karaganda region",
+    placeRu: "Карагандинская область",
     descEn: "Prominent copper mining project in Karaganda region.",
-    descRu: "Медный проект в Karaganda region."
+    descRu: "Медный проект в Карагандинской области."
   },
   {
     name: "Apollo Resources Kazakhstan LLP",
-    place: "Kazakhstan",
+    placeEn: "Kazakhstan",
+    placeRu: "Казахстан",
     descEn: "Local copper mines operator managing strategic mining assets.",
     descRu: "Оператор медных активов и стратегических горнодобывающих проектов."
   },
   {
     name: "Geodrill LLP",
-    place: "Kazakhstan",
+    placeEn: "Kazakhstan",
+    placeRu: "Казахстан",
     descEn: "Drilling company operating in the Republic of Kazakhstan.",
     descRu: "Буровая компания, работающая в Республике Казахстан."
   },
   {
     name: "Drum Tech LLP",
-    place: "Kazakhstan",
+    placeEn: "Kazakhstan",
+    placeRu: "Казахстан",
     descEn: "Technical services company managing company technical operations.",
     descRu: "Техническая сервисная компания, управляющая операционными процессами."
   }
@@ -173,23 +181,31 @@ const focusRu = [
 const assets = [
   {
     name: "Sunkaruya Copper Mine",
-    location: "Карагандинская область",
-    stats: ["Copper", "Drilling operations ongoing", "Exploration stage"]
+    locationEn: "Karaganda region",
+    locationRu: "Карагандинская область",
+    statsEn: ["Copper", "Drilling operations ongoing", "Exploration stage"],
+    statsRu: ["Медь", "Идут буровые работы", "Стадия разведки"]
   },
   {
     name: "Spasskoye Copper Mine",
-    location: "Акмолинская область",
-    stats: ["Copper", "Exploration plan preparation", "Development stage"]
+    locationEn: "Akmola region",
+    locationRu: "Акмолинская область",
+    statsEn: ["Copper", "Exploration plan preparation", "Development stage"],
+    statsRu: ["Медь", "Составляется план разведки", "Стадия развития"]
   },
   {
     name: "Don Copper Mine",
-    location: "Карагандинская область",
-    stats: ["Copper", "Geophysical works starting", "Exploration stage"]
+    locationEn: "Karaganda region",
+    locationRu: "Карагандинская область",
+    statsEn: ["Copper", "Geophysical works starting", "Exploration stage"],
+    statsRu: ["Медь", "Начинается геофизика", "Стадия разведки"]
   },
   {
     name: "Karaganda Processing Site",
-    location: "г. Караганда",
-    stats: ["Copper processing", "Heap leaching pond", "20–60 tons/month concentrate"]
+    locationEn: "Karaganda city",
+    locationRu: "г. Караганда",
+    statsEn: ["Copper processing", "Heap leaching pond", "20–60 tons/month concentrate"],
+    statsRu: ["Переработка меди", "Пруд кучного выщелачивания", "20–60 тонн/месяц концентрата"]
   }
 ];
 
@@ -241,7 +257,7 @@ const demoModulesRu = [
   "Макроэкономический обзор"
 ];
 
-const lockedModules = [
+const lockedModulesEn = [
   {
     title: "Investor Access",
     desc: "Portfolio updates, corporate presentations, asset materials and quarterly reporting.",
@@ -250,8 +266,23 @@ const lockedModules = [
   },
   {
     title: "Partner Deal Room",
-    desc: "Transaction teasers, financial models, DD materials and restricted deal documentation.",
+    desc: "Transaction teasers, financial models, due diligence materials and restricted deal documentation.",
     level: "Restricted",
+    icon: Shield
+  }
+];
+
+const lockedModulesRu = [
+  {
+    title: "Доступ инвестора",
+    desc: "Обновления портфеля, корпоративные презентации, материалы по активам и квартальная отчетность.",
+    level: "Закрыто",
+    icon: FileText
+  },
+  {
+    title: "Партнерский Deal Room",
+    desc: "Тизеры сделок, финансовые модели, due diligence-материалы и закрытая документация по сделкам.",
+    level: "Ограничено",
     icon: Shield
   }
 ];
@@ -365,7 +396,7 @@ export default function Home() {
             <div className="relative flex h-full flex-col justify-between">
               <div className="flex items-center justify-between">
                 <div className="rounded-full border border-white/15 px-3 py-1 text-xs uppercase tracking-[.22em] text-white/55">
-                  Resource Platform
+                  {lang === "en" ? "Resource Platform" : "Ресурсная платформа"}
                 </div>
                 <Globe2 className="text-copper-100" />
               </div>
@@ -383,7 +414,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="grid grid-cols-3 gap-3 text-center">
-                {["Geneva", "Dubai", "Almaty"].map((city) => (
+                {(lang === "en" ? ["Geneva", "Dubai", "Almaty"] : ["Женева", "Дубай", "Алматы"]).map((city) => (
                   <div key={city} className="rounded-2xl border border-white/10 bg-black/25 p-4">
                     <MapPin className="mx-auto mb-2 text-copper-100" size={18} />
                     <div className="text-sm font-semibold">{city}</div>
@@ -396,7 +427,7 @@ export default function Home() {
       </section>
 
       <Section id="group">
-        <Label>Group Overview</Label>
+        <Label>{lang === "en" ? "Group Overview" : "Обзор группы"}</Label>
         <div className="grid gap-10 md:grid-cols-[.9fr_1.1fr]">
           <div>
             <h2 className="text-4xl font-semibold tracking-[-0.04em] md:text-6xl">{t.overviewTitle}</h2>
@@ -433,7 +464,7 @@ export default function Home() {
             >
               <Building2 className="mb-8 text-copper-100" />
               <h3 className="text-lg font-semibold">{s.name}</h3>
-              <div className="mt-1 text-xs uppercase tracking-[.18em] text-white/38">{s.place}</div>
+              <div className="mt-1 text-xs uppercase tracking-[.18em] text-white/38">{lang === "en" ? s.placeEn : s.placeRu}</div>
               <p className="mt-4 text-sm leading-6 text-white/58">{lang === "en" ? s.descEn : s.descRu}</p>
             </motion.div>
           ))}
@@ -476,7 +507,7 @@ export default function Home() {
                   <div>
                     <h3 className="text-2xl font-semibold">{asset.name}</h3>
                     <div className="mt-1 flex items-center gap-2 text-sm text-white/45">
-                      <MapPin size={15} /> {asset.location}
+                      <MapPin size={15} /> {lang === "en" ? asset.locationEn : asset.locationRu}
                     </div>
                   </div>
                   <div className="rounded-full bg-copper-500/10 px-3 py-1 text-xs uppercase tracking-[.2em] text-copper-100">
@@ -484,7 +515,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="mt-6 grid gap-3 sm:grid-cols-3">
-                  {asset.stats.map((stat) => (
+                  {(lang === "en" ? asset.statsEn : asset.statsRu).map((stat) => (
                     <div key={stat} className="rounded-xl border border-white/10 bg-black/20 p-3 text-sm text-white/65">
                       {stat}
                     </div>
@@ -505,12 +536,10 @@ export default function Home() {
               <p className="mt-6 text-lg leading-8 text-white/62">{t.philosophyText}</p>
             </div>
             <div className="grid gap-4">
-              {[
-                "Resource-backed value",
-                "Operational involvement",
-                "Strategic partnerships",
-                "Central Asia growth corridor"
-              ].map((x) => (
+              {(lang === "en"
+                ? ["Resource-backed value", "Operational involvement", "Strategic partnerships", "Central Asia growth corridor"]
+                : ["Стоимость, обеспеченная ресурсами", "Операционное участие", "Стратегические партнерства", "Коридор роста Центральной Азии"]
+              ).map((x) => (
                 <div key={x} className="flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 p-5">
                   <Zap className="text-copper-100" />
                   <span className="text-white/75">{x}</span>
@@ -558,9 +587,9 @@ export default function Home() {
                     {lang === "en" ? "Market Intelligence Dashboard" : "Панель рыночных котировок"}
                   </h3>
                 </div>
-                <span className="w-fit rounded-full bg-copper-500/10 px-3 py-1 text-xs uppercase tracking-[.2em] text-copper-100">
-                  {lang === "en" ? "Open Demo" : "Открытая демо"}
-                </span>
+                <a href="/demo" className="w-fit rounded-full bg-copper-500/10 px-3 py-1 text-xs uppercase tracking-[.2em] text-copper-100 transition hover:bg-copper-500/20">
+                  {lang === "en" ? "Open Demo" : "Открыть демо"}
+                </a>
               </div>
             </div>
 
@@ -650,8 +679,8 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="grid gap-4 border-t border-white/10 p-5 md:grid-cols-2">
-              {lockedModules.map((module) => {
+            <div id="investor-private" className="grid gap-4 border-t border-white/10 p-5 md:grid-cols-2">
+              {(lang === "en" ? lockedModulesEn : lockedModulesRu).map((module) => {
                 const Icon = module.icon;
                 return (
                   <div key={module.title} className="rounded-[1.5rem] border border-white/10 bg-black/25 p-5">
@@ -690,7 +719,7 @@ export default function Home() {
               <p className="mt-5 max-w-3xl text-lg leading-8 text-white/62">{t.contactText}</p>
             </div>
             <div className="grid gap-3">
-              {["Женева, Швейцария", "Дубай, ОАЭ", "Центральная Азия"].map((office) => (
+              {(lang === "en" ? ["Geneva, Switzerland", "Dubai, UAE", "Central Asia"] : ["Женева, Швейцария", "Дубай, ОАЭ", "Центральная Азия"]).map((office) => (
                 <div key={office} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-black/20 p-4">
                   <MapPin className="text-copper-100" size={18} />
                   <span>{office}</span>
