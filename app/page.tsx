@@ -223,13 +223,22 @@ const marketQuotes = [
   { name: "Alphabet", ticker: "GOOGL", price: "$171.55", change: "+0.28%", group: "Mega Cap" }
 ];
 
-const demoModules = [
+const demoModulesEn = [
   "Metals watchlist",
   "Energy resources",
   "Major indices",
   "Mega-cap equities",
   "Market chart preview",
   "Public macro snapshot"
+];
+
+const demoModulesRu = [
+  "Котировки металлов",
+  "Энергетические ресурсы",
+  "Основные индексы",
+  "Акции mega-cap",
+  "Превью рыночных графиков",
+  "Макроэкономический обзор"
 ];
 
 const lockedModules = [
@@ -521,9 +530,9 @@ export default function Home() {
 
             <div className="mt-8 grid gap-3">
               {[
-                ["Demo Access", lang === "en" ? "Open market dashboard" : "Открытая market-панель", Unlock],
-                ["Investor Access", lang === "en" ? "Private investor materials" : "Закрытые investor-материалы", Lock],
-                ["Partner Deal Room", lang === "en" ? "Restricted transaction room" : "Приватный deal room", Shield]
+                ["Demo Access", lang === "en" ? "Open market dashboard" : "Open market dashboard", Unlock],
+                ["Investor Access", lang === "en" ? "Private investor materials" : "Private investor materials", Lock],
+                ["Partner Deal Room", lang === "en" ? "Restricted transaction room" : "Restricted transaction room", Shield]
               ].map(([title, desc, Icon]) => (
                 <div key={title as string} className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[.035] p-4">
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-copper-500/10 text-copper-100">
@@ -563,7 +572,7 @@ export default function Home() {
                       {lang === "en" ? "Watchlist" : "Список котировок"}
                     </div>
                     <div className="mt-1 text-lg font-semibold">
-                      {lang === "en" ? "Metals • Energy • Indices • Mega Caps" : "Металлы • Энергия • Индексы • Mega Cap"}
+                      {lang === "en" ? "Metals • Energy • Indices • Mega Caps" : "Metals • Energy • Indices • Mega Caps"}
                     </div>
                   </div>
                   <TrendingUp className="text-copper-100" />
@@ -631,7 +640,7 @@ export default function Home() {
                     {lang === "en" ? "Available in Demo" : "Доступно в демо"}
                   </div>
                   <div className="grid grid-cols-2 gap-3">
-                    {demoModules.map((module) => (
+                    {(lang === "en" ? demoModulesEn : demoModulesRu).map((module) => (
                       <div key={module} className="rounded-xl border border-white/10 bg-white/[.035] p-3 text-sm text-white/62">
                         {module}
                       </div>
