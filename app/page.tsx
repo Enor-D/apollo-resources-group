@@ -58,7 +58,7 @@ const copy = {
       "Demo password: APOLLO2026. For production, connect Supabase, NextAuth or Vercel authentication.",
     contactTitle: "Global Presence",
     contactText:
-      "Operating across Kazakhstan, UAE, Central Asia, CIS and the Middle East.",
+      "Operating across Switzerland, UAE and Central Asia.",
     footer: "Strategic Capital • Resources • Industrial Technologies"
   },
   ru: {
@@ -99,7 +99,7 @@ const copy = {
       "Демо-пароль: APOLLO2026. Для production нужно подключить Supabase, NextAuth или Vercel authentication.",
     contactTitle: "Глобальное присутствие",
     contactText:
-      "Операции в Казахстане, ОАЭ, Центральной Азии, СНГ и на Ближнем Востоке.",
+      "Операции в Швейцарии, ОАЭ и Центральной Азии.",
     footer: "Стратегический капитал • Ресурсы • Промышленные технологии"
   }
 };
@@ -173,22 +173,22 @@ const assets = [
   {
     name: "Sunkaruya Copper Mine",
     location: "Karaganda region",
-    stats: ["1,009 ha", "500,000 tons Cu", "2–4% average grade"]
+    stats: ["Copper", "Drilling operations ongoing", "Exploration stage"]
   },
   {
     name: "Spasskoye Copper Mine",
     location: "Akmola region",
-    stats: ["440 ha", "800,000 tons Cu", "2% average grade"]
+    stats: ["Copper", "Exploration plan preparation", "Development stage"]
   },
   {
     name: "Don Copper Mine",
     location: "Karaganda region",
-    stats: ["1,100 ha", "200,000 tons Cu", "2–4% average grade"]
+    stats: ["Copper", "Geophysical works starting", "Exploration stage"]
   },
   {
     name: "Karaganda Processing Site",
     location: "Karaganda city",
-    stats: ["4,687 sqm", "Heap leaching pond", "20–60 tons/month concentrate"]
+    stats: ["Copper processing", "Heap leaching pond", "20–60 tons/month concentrate"]
   }
 ];
 
@@ -328,7 +328,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="grid grid-cols-3 gap-3 text-center">
-                {["Almaty", "Karaganda", "Dubai"].map((city) => (
+                {["Geneva", "Dubai", "Almaty"].map((city) => (
                   <div key={city} className="rounded-2xl border border-white/10 bg-black/25 p-4">
                     <MapPin className="mx-auto mb-2 text-copper-100" size={18} />
                     <div className="text-sm font-semibold">{city}</div>
@@ -520,7 +520,7 @@ export default function Home() {
               <p className="mt-5 max-w-3xl text-lg leading-8 text-white/62">{t.contactText}</p>
             </div>
             <div className="grid gap-3">
-              {["Almaty, Kazakhstan", "Karaganda, Kazakhstan", "Dubai, UAE"].map((office) => (
+              {["Geneva, Switzerland", "Dubai, UAE", "Central Asia"].map((office) => (
                 <div key={office} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-black/20 p-4">
                   <MapPin className="text-copper-100" size={18} />
                   <span>{office}</span>
