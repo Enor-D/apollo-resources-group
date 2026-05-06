@@ -82,9 +82,9 @@ const categories: { key: CategoryKey; label: string; subtitle: string; symbols: 
     label: "FX / Macro",
     subtitle: "Currencies, dollar index, rates and macro indicators",
     symbols: [
-      { name: "US Dollar Index", symbol: "DX-Y.NYB", subtitle: "Dollar basket" },
+      { name: "US Dollar Index", symbol: "DX-Y.NYB", subtitle: "US dollar strength index" },
       { name: "EUR/USD", symbol: "EURUSD=X", subtitle: "Major FX pair" },
-      { name: "USD/KZT", symbol: "USDKZT=X", subtitle: "Kazakhstan tenge" },
+      { name: "USD/KZT", symbol: "USDKZT=X", subtitle: "Kazakhstan tenge (USD quoted)" },
       { name: "US 10Y Yield", symbol: "^TNX", subtitle: "Rates benchmark" },
       { name: "Bitcoin", symbol: "BTC-USD", subtitle: "Digital asset macro proxy" }
     ]
@@ -93,11 +93,20 @@ const categories: { key: CategoryKey; label: string; subtitle: string; symbols: 
 
 function formatPrice(value: number, symbol: string) {
   if (!Number.isFinite(value)) return "—";
-  if (symbol.includes("=X") || symbol === "DX-Y.NYB") return value.toLocaleString("en-US", { maximumFractionDigits: 4 });
-  if (symbol === "^TNX") return `${value.toFixed(2)}%`;
-  if (value > 1000) return value.toLocaleString("en-US", { maximumFractionDigits: 0 });
-  if (value > 100) return value.toLocaleString("en-US", { maximumFractionDigits: 2 });
-  return value.toLocaleString("en-US", { maximumFractionDigits: 3 });
+
+  if (symbol === "^TNX") {
+    return `${value.toFixed(2)}%`;
+  }
+
+  const decimals =
+    value >= 1000 ? 0 :
+    value >= 100 ? 2 :
+    value >= 1 ? 2 : 4;
+
+  return `$${value.toLocaleString("en-US", {
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals
+  })}`;
 }
 
 function MiniChart({ points, positive }: { points: number[]; positive: boolean }) {
