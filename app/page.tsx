@@ -21,7 +21,7 @@ type Lang = "en" | "ru";
 
 const copy = {
   en: {
-    nav: ["Group", "Portfolio", "Assets", "Philosophy", "Investor"],
+    nav: ["Group", "Mining", "Philosophy", "Investor"],
     heroKicker: "ASSET MANAGEMENT • COMMODITIES TRADING • BROWNFIELD INVESTMENTS • DEAL FINANCING",
     heroTitle: "Building Strategic Value Across Resources, Energy & Industrial Technologies",
     heroText:
@@ -62,7 +62,7 @@ const copy = {
     footer: "Strategic Capital • Resources • Industrial Technologies"
   },
   ru: {
-    nav: ["Группа", "Портфель", "Активы", "Философия", "Инвесторам"],
+    nav: ["Группа", "Mining", "Философия", "Инвесторам"],
     heroKicker: "УПРАВЛЕНИЕ АКТИВАМИ • ТОРГОВЛЯ СЫРЬЕМ • BROWNFIELD-ИНВЕСТИЦИИ • ФИНАНСИРОВАНИЕ СДЕЛОК",
     heroTitle: "Создаем стратегическую стоимость в ресурсах, энергетике и промышленных технологиях",
     heroText:
@@ -106,10 +106,10 @@ const copy = {
 
 const subsidiaries = [
   {
-    name: "Argelum LLP",
-    place: "Almaty, Kazakhstan",
-    descEn: "Local office focused on commodities trading and private equity.",
-    descRu: "Локальный офис с фокусом на торговлю сырьем и private equity."
+    name: "Apollo Resources AG",
+    place: "Switzerland",
+    descEn: "Strategic holding and international corporate platform.",
+    descRu: "Стратегическая холдинговая и международная корпоративная платформа."
   },
   {
     name: "Apollo Resources DMCC",
@@ -118,10 +118,10 @@ const subsidiaries = [
     descRu: "Торговый хаб в ОАЭ по энергетическим ресурсам, базовым и малым металлам."
   },
   {
-    name: "Apollo Resources Kazakhstan LLP",
-    place: "Kazakhstan",
-    descEn: "Local copper mines operator owning Don and Spasskoye mines.",
-    descRu: "Оператор медных рудников в Казахстане, владеющий Don и Spasskoye."
+    name: "Additech LLP",
+    place: "Central Asia",
+    descEn: "Additive manufacturing center in Central Asia.",
+    descRu: "Центр аддитивного производства в Центральной Азии."
   },
   {
     name: "Drum Tech LLP",
@@ -136,10 +136,10 @@ const subsidiaries = [
     descRu: "Медный рудник в Карагандинской области."
   },
   {
-    name: "Additech LLP",
-    place: "Central Asia",
-    descEn: "Additive manufacturing center in Central Asia.",
-    descRu: "Центр аддитивного производства в Центральной Азии."
+    name: "Apollo Resources Kazakhstan LLP",
+    place: "Kazakhstan",
+    descEn: "Local copper mines operator owning Don and Spasskoye mines.",
+    descRu: "Оператор медных рудников в Казахстане, владеющий Don и Spasskoye."
   },
   {
     name: "Geodrill LLP",
@@ -148,25 +148,25 @@ const subsidiaries = [
     descRu: "Буровая компания, работающая в Республике Казахстан."
   },
   {
-    name: "Apollo Resources AG",
-    place: "Switzerland",
-    descEn: "Strategic holding and international corporate platform.",
-    descRu: "Стратегическая холдинговая и международная корпоративная платформа."
+    name: "Argelum LLP",
+    place: "Almaty, Kazakhstan",
+    descEn: "Local office focused on commodities trading and private equity.",
+    descRu: "Локальный офис с фокусом на торговлю сырьем и private equity."
   }
 ];
 
 const focus = [
-  ["Commodities Trading", "Energy resources, base metals, minor metals and structured trade flows.", TrendingUp],
+  ["Asset Management", "Strategic capital allocation, long-term portfolio management and resource-backed investment platforms.", Shield],
   ["Mining & Processing", "Copper-focused brownfield assets, heap leaching and processing infrastructure.", Mountain],
   ["Industrial Technologies", "Advanced manufacturing, technical services and modernization of industrial supply chains.", Factory],
-  ["Deal Financing", "Strategic capital allocation into resource-backed and industrial opportunities.", Shield]
+  ["Commodities Trading", "Energy resources, base metals, minor metals and structured trade flows.", TrendingUp]
 ];
 
 const focusRu = [
-  ["Торговля сырьем", "Энергетические ресурсы, базовые и малые металлы, структурированные торговые потоки.", TrendingUp],
+  ["Управление активами", "Стратегическое распределение капитала, долгосрочное управление портфелем и ресурсно обеспеченные инвестиционные платформы.", Shield],
   ["Добыча и переработка", "Медные brownfield-активы, кучное выщелачивание и переработка.", Mountain],
   ["Промышленные технологии", "Передовое производство, технические сервисы и модернизация промышленных цепочек.", Factory],
-  ["Финансирование сделок", "Стратегическое распределение капитала в ресурсные и промышленные возможности.", Shield]
+  ["Торговля сырьем", "Энергетические ресурсы, базовые и малые металлы, структурированные торговые потоки.", TrendingUp]
 ];
 
 const assets = [
@@ -251,7 +251,7 @@ export default function Home() {
             {t.nav.map((item, index) => (
               <a
                 key={item}
-                href={["#group", "#portfolio", "#assets", "#philosophy", "#investor"][index]}
+                href={["#portfolio", "#assets", "#philosophy", "#investor"][index]}
                 className="transition hover:text-white"
               >
                 {item}
