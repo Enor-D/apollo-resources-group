@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -31,6 +31,9 @@ const copy = {
       "Apollo Resources Group is a strategic asset management and resources holding operating across Switzerland, the UAE and Central Asia.",
     explore: "Explore Group",
     investor: "Investor Access",
+    resourcePlatform: "Resource Platform",
+    cities: ["Geneva", "Dubai", "Almaty"],
+    overviewLabel: "Group Overview",
     overviewTitle: "A vertically integrated resource-backed platform",
     overviewText:
       "The Group combines commodities trading, mining assets, technical operations, additive manufacturing and deal financing into one industrial capital platform.",
@@ -49,18 +52,62 @@ const copy = {
     assetsTitle: "Mining Assets & Processing Units",
     assetsText:
       "Copper-focused brownfield mining and processing portfolio across Kazakhstan.",
+    copperPlatform: "Copper Platform",
+    copperPlatformText:
+      "Brownfield assets, processing infrastructure and trading capability create an integrated value chain.",
+    assetLabel: "Asset",
     philosophyTitle: "Investment Philosophy",
     philosophyText:
       "We pursue resource-backed opportunities where capital, operating discipline and strategic partnerships can unlock long-term value.",
+    philosophyItems: [
+      "Resource-backed value",
+      "Operational involvement",
+      "Strategic partnerships",
+      "Central Asia growth corridor"
+    ],
     investorTitle: "Investor Access",
     investorText:
       "A multi-level investor environment with public market intelligence, private portfolio materials and restricted transaction data rooms.",
+    tiers: [
+      ["Demo Access", "Open real-time market dashboard"],
+      ["Investor Access", "Private investor materials"],
+      ["Partner Deal Room", "Restricted transaction room"]
+    ],
+    openDemo: "Open Demo",
+    demoLabel: "Demo Access",
+    marketDashboard: "Market Intelligence Dashboard",
+    watchlist: "Watchlist",
+    chartPreview: "Chart Preview",
+    availableDemo: "Available in Demo",
+    marketSubtitle: "Metals • Energy • Indices • Mega Caps",
+    demoText:
+      "Demo version connects to a real-time market data dashboard on a separate page.",
+    demoModules: [
+      "Metals watchlist",
+      "Energy resources",
+      "Major indices",
+      "Mega-cap equities",
+      "Market chart preview",
+      "Public macro snapshot"
+    ],
     passwordPlaceholder: "Enter investor password",
     unlock: "Unlock",
-    lockedNote: "",
+    lockedModules: [
+      {
+        title: "Investor Access",
+        desc: "Portfolio updates, corporate presentations, asset materials and quarterly reporting.",
+        level: "Private"
+      },
+      {
+        title: "Partner Deal Room",
+        desc: "Transaction teasers, financial models, due diligence materials and restricted deal documentation.",
+        level: "Restricted"
+      }
+    ],
     contactTitle: "Global Presence",
     contactText:
       "Operating across Switzerland, UAE and Central Asia.",
+    offices: ["Geneva, Switzerland", "Dubai, UAE", "Central Asia"],
     footer: "Strategic Capital • Resources • Industrial Technologies"
   },
   ru: {
@@ -68,16 +115,19 @@ const copy = {
     heroKicker: "УПРАВЛЕНИЕ АКТИВАМИ • ТОРГОВЛЯ СЫРЬЕМ • BROWNFIELD-ИНВЕСТИЦИИ • ФИНАНСИРОВАНИЕ СДЕЛОК",
     heroTitle: "Создаем стратегическую стоимость в ресурсах, энергетике и промышленных технологиях",
     heroText:
-      "Apollo Resources Group — стратегический холдинг по управлению активами и ресурсами с операциями в Switzerland, UAE и Central Asia.",
+      "Apollo Resources Group — стратегический холдинг по управлению активами и ресурсами с операциями в Швейцарии, ОАЭ и Центральной Азии.",
     explore: "О группе",
     investor: "Доступ инвестора",
+    resourcePlatform: "Ресурсная платформа",
+    cities: ["Женева", "Дубай", "Алматы"],
+    overviewLabel: "Обзор группы",
     overviewTitle: "Вертикально интегрированная платформа, обеспеченная ресурсными активами",
     overviewText:
       "Группа объединяет торговлю сырьевыми товарами, горнодобывающие активы, технические операции, аддитивное производство и финансирование сделок в единую промышленно-инвестиционную платформу.",
     numbers: [
       ["3", "Ключевых региона"],
       ["127", "Членов команды"],
-      ["100+ mln", "AUM"],
+      ["100+ млн", "AUM"],
       ["2013", "Год основания"]
     ],
     structureTitle: "Структура группы",
@@ -88,19 +138,63 @@ const copy = {
       "Apollo Resources Group направляет капитал и операционные компетенции в ресурсные, промышленные и стратегические возможности.",
     assetsTitle: "Горнодобывающие активы и переработка",
     assetsText:
-      "Медные brownfield-активы и перерабатывающая инфраструктура в Kazakhstan.",
+      "Медные brownfield-активы и перерабатывающая инфраструктура в Казахстане.",
+    copperPlatform: "Медная платформа",
+    copperPlatformText:
+      "Brownfield-активы, перерабатывающая инфраструктура и торговые возможности формируют интегрированную цепочку стоимости.",
+    assetLabel: "Актив",
     philosophyTitle: "Инвестиционная философия",
     philosophyText:
       "Мы фокусируемся на ресурсно обеспеченных возможностях, где капитал, операционная дисциплина и стратегические партнерства раскрывают долгосрочную стоимость.",
+    philosophyItems: [
+      "Стоимость, обеспеченная ресурсами",
+      "Операционное участие",
+      "Стратегические партнерства",
+      "Коридор роста Центральной Азии"
+    ],
     investorTitle: "Доступ для инвесторов",
     investorText:
       "Многоуровневая investor-зона с открытой рыночной аналитикой, закрытыми материалами по портфелю и приватными deal room-разделами.",
+    tiers: [
+      ["Demo Access", "Открытая панель real-time котировок"],
+      ["Investor Access", "Закрытые материалы инвестора"],
+      ["Partner Deal Room", "Закрытый deal room"]
+    ],
+    openDemo: "Открыть демо",
+    demoLabel: "Demo Access",
+    marketDashboard: "Панель рыночных котировок",
+    watchlist: "Список котировок",
+    chartPreview: "Превью графика",
+    availableDemo: "Доступно в демо",
+    marketSubtitle: "Металлы • Энергия • Индексы • Mega Cap",
+    demoText:
+      "Демо-версия ведет на отдельную страницу с real-time market data dashboard.",
+    demoModules: [
+      "Котировки металлов",
+      "Энергетические ресурсы",
+      "Основные индексы",
+      "Акции mega-cap",
+      "Превью рыночных графиков",
+      "Макроэкономический обзор"
+    ],
     passwordPlaceholder: "Введите пароль инвестора",
     unlock: "Открыть",
-    lockedNote: "",
+    lockedModules: [
+      {
+        title: "Доступ инвестора",
+        desc: "Обновления портфеля, корпоративные презентации, материалы по активам и квартальная отчетность.",
+        level: "Закрыто"
+      },
+      {
+        title: "Партнерский Deal Room",
+        desc: "Тизеры сделок, финансовые модели, due diligence-материалы и закрытая документация по сделкам.",
+        level: "Ограничено"
+      }
+    ],
     contactTitle: "Глобальное присутствие",
     contactText:
       "Операции в Швейцарии, ОАЭ и Центральной Азии.",
+    offices: ["Женева, Швейцария", "Дубай, ОАЭ", "Центральная Азия"],
     footer: "Стратегический капитал • Ресурсы • Промышленные технологии"
   }
 };
@@ -165,17 +259,34 @@ const subsidiaries = [
 ];
 
 const focus = [
-  ["Asset Management", "Strategic capital allocation, long-term portfolio management and resource-backed investment platforms.", Shield],
-  ["Mining & Processing", "Copper-focused brownfield assets, heap leaching and processing infrastructure.", Mountain],
-  ["Industrial Technologies", "Advanced manufacturing, technical services and modernization of industrial supply chains.", Factory],
-  ["Commodities Trading", "Energy resources, base metals, minor metals and structured trade flows.", TrendingUp]
-];
-
-const focusRu = [
-  ["Управление активами", "Стратегическое распределение капитала, долгосрочное управление портфелем и ресурсно обеспеченные инвестиционные платформы.", Shield],
-  ["Добыча и переработка", "Медные brownfield-активы, кучное выщелачивание и переработка.", Mountain],
-  ["Промышленные технологии", "Передовое производство, технические сервисы и модернизация промышленных цепочек.", Factory],
-  ["Торговля сырьем", "Энергетические ресурсы, базовые и малые металлы, структурированные торговые потоки.", TrendingUp]
+  {
+    titleEn: "Asset Management",
+    titleRu: "Управление активами",
+    descEn: "Strategic capital allocation, long-term portfolio management and resource-backed investment platforms.",
+    descRu: "Стратегическое распределение капитала, долгосрочное управление портфелем и ресурсно обеспеченные инвестиционные платформы.",
+    icon: Shield
+  },
+  {
+    titleEn: "Mining & Processing",
+    titleRu: "Добыча и переработка",
+    descEn: "Copper-focused brownfield assets, heap leaching and processing infrastructure.",
+    descRu: "Медные brownfield-активы, кучное выщелачивание и переработка.",
+    icon: Mountain
+  },
+  {
+    titleEn: "Industrial Technologies",
+    titleRu: "Промышленные технологии",
+    descEn: "Advanced manufacturing, technical services and modernization of industrial supply chains.",
+    descRu: "Передовое производство, технические сервисы и модернизация промышленных цепочек.",
+    icon: Factory
+  },
+  {
+    titleEn: "Commodities Trading",
+    titleRu: "Торговля сырьем",
+    descEn: "Energy resources, base metals, minor metals and structured trade flows.",
+    descRu: "Энергетические ресурсы, базовые и малые металлы, структурированные торговые потоки.",
+    icon: TrendingUp
+  }
 ];
 
 const assets = [
@@ -209,82 +320,14 @@ const assets = [
   }
 ];
 
-const portfolioDocs = [
-  "Corporate Introduction",
-  "Portfolio Update",
-  "Mining Asset Overview",
-  "Transaction Teasers",
-  "Quarterly Reports",
-  "Confidential Data Room"
-];
-
-const marketQuotes = [
+const marketPreview = [
   { name: "Copper", ticker: "COMEX: HG", price: "$4.62", change: "+1.24%", group: "Metals" },
   { name: "Gold", ticker: "XAU/USD", price: "$2,392", change: "+0.41%", group: "Metals" },
   { name: "Silver", ticker: "XAG/USD", price: "$31.14", change: "-0.22%", group: "Metals" },
   { name: "Platinum", ticker: "XPT/USD", price: "$1,037", change: "+0.19%", group: "Metals" },
   { name: "Aluminum", ticker: "LME: ALI", price: "$2,545", change: "+0.63%", group: "Metals" },
   { name: "Nickel", ticker: "LME: NICKEL", price: "$19,260", change: "-0.38%", group: "Metals" },
-  { name: "Brent Oil", ticker: "UKOIL", price: "$82.50", change: "+0.77%", group: "Energy" },
-  { name: "WTI Oil", ticker: "USOIL", price: "$78.14", change: "+0.52%", group: "Energy" },
-  { name: "Natural Gas", ticker: "NATGAS", price: "$2.68", change: "-1.08%", group: "Energy" },
-  { name: "S&P 500", ticker: "SPX", price: "5,218", change: "+0.34%", group: "Indices" },
-  { name: "Nasdaq 100", ticker: "NDX", price: "18,240", change: "+0.58%", group: "Indices" },
-  { name: "Dow Jones", ticker: "DJI", price: "39,112", change: "+0.21%", group: "Indices" },
-  { name: "DXY", ticker: "DXY", price: "104.21", change: "-0.15%", group: "FX" },
-  { name: "NVIDIA", ticker: "NVDA", price: "$910.18", change: "+2.10%", group: "Mega Cap" },
-  { name: "Apple", ticker: "AAPL", price: "$192.44", change: "-0.18%", group: "Mega Cap" },
-  { name: "Microsoft", ticker: "MSFT", price: "$421.90", change: "+0.47%", group: "Mega Cap" },
-  { name: "Amazon", ticker: "AMZN", price: "$184.12", change: "+0.31%", group: "Mega Cap" },
-  { name: "Alphabet", ticker: "GOOGL", price: "$171.55", change: "+0.28%", group: "Mega Cap" }
-];
-
-const demoModulesEn = [
-  "Metals watchlist",
-  "Energy resources",
-  "Major indices",
-  "Mega-cap equities",
-  "Market chart preview",
-  "Public macro snapshot"
-];
-
-const demoModulesRu = [
-  "Котировки металлов",
-  "Энергетические ресурсы",
-  "Основные индексы",
-  "Акции mega-cap",
-  "Превью рыночных графиков",
-  "Макроэкономический обзор"
-];
-
-const lockedModulesEn = [
-  {
-    title: "Investor Access",
-    desc: "Portfolio updates, corporate presentations, asset materials and quarterly reporting.",
-    level: "Private",
-    icon: FileText
-  },
-  {
-    title: "Partner Deal Room",
-    desc: "Transaction teasers, financial models, due diligence materials and restricted deal documentation.",
-    level: "Restricted",
-    icon: Shield
-  }
-];
-
-const lockedModulesRu = [
-  {
-    title: "Доступ инвестора",
-    desc: "Обновления портфеля, корпоративные презентации, материалы по активам и квартальная отчетность.",
-    level: "Закрыто",
-    icon: FileText
-  },
-  {
-    title: "Партнерский Deal Room",
-    desc: "Тизеры сделок, финансовые модели, due diligence-материалы и закрытая документация по сделкам.",
-    level: "Ограничено",
-    icon: Shield
-  }
+  { name: "Brent Oil", ticker: "UKOIL", price: "$82.50", change: "+0.77%", group: "Energy" }
 ];
 
 function Section({ id, children, className = "" }: { id?: string; children: React.ReactNode; className?: string }) {
@@ -306,15 +349,7 @@ function Label({ children }: { children: React.ReactNode }) {
 
 export default function Home() {
   const [lang, setLang] = useState<Lang>("en");
-  const [password, setPassword] = useState("");
-  const [unlocked, setUnlocked] = useState(false);
-
   const t = copy[lang];
-  const focusCards = lang === "en" ? focus : focusRu;
-
-  const handleUnlock = () => {
-    if (password.trim().toUpperCase() === "APOLLO2026") setUnlocked(true);
-  };
 
   return (
     <main className="min-h-screen overflow-hidden bg-[#050608] text-[#f7f4ef]">
@@ -396,7 +431,7 @@ export default function Home() {
             <div className="relative flex h-full flex-col justify-between">
               <div className="flex items-center justify-between">
                 <div className="rounded-full border border-white/15 px-3 py-1 text-xs uppercase tracking-[.22em] text-white/55">
-                  {lang === "en" ? "Resource Platform" : "Ресурсная платформа"}
+                  {t.resourcePlatform}
                 </div>
                 <Globe2 className="text-copper-100" />
               </div>
@@ -414,7 +449,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="grid grid-cols-3 gap-3 text-center">
-                {(lang === "en" ? ["Geneva", "Dubai", "Almaty"] : ["Женева", "Дубай", "Алматы"]).map((city) => (
+                {t.cities.map((city) => (
                   <div key={city} className="rounded-2xl border border-white/10 bg-black/25 p-4">
                     <MapPin className="mx-auto mb-2 text-copper-100" size={18} />
                     <div className="text-sm font-semibold">{city}</div>
@@ -427,7 +462,7 @@ export default function Home() {
       </section>
 
       <Section id="group">
-        <Label>{lang === "en" ? "Group Overview" : "Обзор группы"}</Label>
+        <Label>{t.overviewLabel}</Label>
         <div className="grid gap-10 md:grid-cols-[.9fr_1.1fr]">
           <div>
             <h2 className="text-4xl font-semibold tracking-[-0.04em] md:text-6xl">{t.overviewTitle}</h2>
@@ -446,11 +481,9 @@ export default function Home() {
 
       <Section id="group-structure" className="pt-0">
         <Label>{t.structureTitle}</Label>
-        <div className="mb-10 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-          <div>
-            <h2 className="text-4xl font-semibold tracking-[-0.04em] md:text-6xl">{t.structureTitle}</h2>
-            <p className="mt-5 max-w-3xl text-lg leading-8 text-white/62">{t.structureText}</p>
-          </div>
+        <div className="mb-10">
+          <h2 className="text-4xl font-semibold tracking-[-0.04em] md:text-6xl">{t.structureTitle}</h2>
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-white/62">{t.structureText}</p>
         </div>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {subsidiaries.map((s, i) => (
@@ -476,13 +509,16 @@ export default function Home() {
         <h2 className="max-w-4xl text-4xl font-semibold tracking-[-0.04em] md:text-6xl">{t.focusTitle}</h2>
         <p className="mt-5 max-w-3xl text-lg leading-8 text-white/62">{t.focusText}</p>
         <div className="mt-10 grid gap-5 md:grid-cols-2">
-          {focusCards.map(([title, desc, Icon]) => (
-            <div key={title as string} className="glass rounded-[2rem] p-7 transition hover:border-copper-300/40">
-              <Icon className="mb-8 text-copper-100" size={32} />
-              <h3 className="text-2xl font-semibold">{title as string}</h3>
-              <p className="mt-4 leading-7 text-white/58">{desc as string}</p>
-            </div>
-          ))}
+          {focus.map((card) => {
+            const Icon = card.icon;
+            return (
+              <div key={card.titleEn} className="glass rounded-[2rem] p-7 transition hover:border-copper-300/40">
+                <Icon className="mb-8 text-copper-100" size={32} />
+                <h3 className="text-2xl font-semibold">{lang === "en" ? card.titleEn : card.titleRu}</h3>
+                <p className="mt-4 leading-7 text-white/58">{lang === "en" ? card.descEn : card.descRu}</p>
+              </div>
+            );
+          })}
         </div>
       </Section>
 
@@ -494,35 +530,36 @@ export default function Home() {
             <p className="mt-5 text-lg leading-8 text-white/62">{t.assetsText}</p>
             <div className="mt-8 rounded-[2rem] border border-copper-500/20 bg-copper-500/10 p-6">
               <Pickaxe className="mb-4 text-copper-100" />
-              <div className="text-sm uppercase tracking-[.22em] text-copper-100">Copper Platform</div>
-              <p className="mt-3 text-sm leading-7 text-white/62">
-                Brownfield assets, processing infrastructure and trading capability create an integrated value chain.
-              </p>
+              <div className="text-sm uppercase tracking-[.22em] text-copper-100">{t.copperPlatform}</div>
+              <p className="mt-3 text-sm leading-7 text-white/62">{t.copperPlatformText}</p>
             </div>
           </div>
           <div className="grid gap-4">
-            {assets.map((asset) => (
-              <div key={asset.name} className="rounded-[1.5rem] border border-white/10 bg-white/[.035] p-6">
-                <div className="flex flex-col justify-between gap-3 md:flex-row md:items-start">
-                  <div>
-                    <h3 className="text-2xl font-semibold">{asset.name}</h3>
-                    <div className="mt-1 flex items-center gap-2 text-sm text-white/45">
-                      <MapPin size={15} /> {lang === "en" ? asset.locationEn : asset.locationRu}
+            {assets.map((asset) => {
+              const stats = lang === "en" ? asset.statsEn : asset.statsRu;
+              return (
+                <div key={asset.name} className="rounded-[1.5rem] border border-white/10 bg-white/[.035] p-6">
+                  <div className="flex flex-col justify-between gap-3 md:flex-row md:items-start">
+                    <div>
+                      <h3 className="text-2xl font-semibold">{asset.name}</h3>
+                      <div className="mt-1 flex items-center gap-2 text-sm text-white/45">
+                        <MapPin size={15} /> {lang === "en" ? asset.locationEn : asset.locationRu}
+                      </div>
+                    </div>
+                    <div className="rounded-full bg-copper-500/10 px-3 py-1 text-xs uppercase tracking-[.2em] text-copper-100">
+                      {t.assetLabel}
                     </div>
                   </div>
-                  <div className="rounded-full bg-copper-500/10 px-3 py-1 text-xs uppercase tracking-[.2em] text-copper-100">
-                    Asset
+                  <div className="mt-6 grid gap-3 sm:grid-cols-3">
+                    {stats.map((stat) => (
+                      <div key={stat} className="rounded-xl border border-white/10 bg-black/20 p-3 text-sm text-white/65">
+                        {stat}
+                      </div>
+                    ))}
                   </div>
                 </div>
-                <div className="mt-6 grid gap-3 sm:grid-cols-3">
-                  {(lang === "en" ? asset.statsEn : asset.statsRu).map((stat) => (
-                    <div key={stat} className="rounded-xl border border-white/10 bg-black/20 p-3 text-sm text-white/65">
-                      {stat}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </Section>
@@ -536,10 +573,7 @@ export default function Home() {
               <p className="mt-6 text-lg leading-8 text-white/62">{t.philosophyText}</p>
             </div>
             <div className="grid gap-4">
-              {(lang === "en"
-                ? ["Resource-backed value", "Operational involvement", "Strategic partnerships", "Central Asia growth corridor"]
-                : ["Стоимость, обеспеченная ресурсами", "Операционное участие", "Стратегические партнерства", "Коридор роста Центральной Азии"]
-              ).map((x) => (
+              {t.philosophyItems.map((x) => (
                 <div key={x} className="flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 p-5">
                   <Zap className="text-copper-100" />
                   <span className="text-white/75">{x}</span>
@@ -559,19 +593,26 @@ export default function Home() {
 
             <div className="mt-8 grid gap-3">
               {[
-                ["Demo Access", lang === "en" ? "Open market dashboard" : "Open market dashboard", Unlock],
-                ["Investor Access", lang === "en" ? "Private investor materials" : "Private investor materials", Lock],
-                ["Partner Deal Room", lang === "en" ? "Restricted transaction room" : "Restricted transaction room", Shield]
-              ].map(([title, desc, Icon]) => (
-                <div key={title as string} className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[.035] p-4">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-copper-500/10 text-copper-100">
-                    <Icon size={20} />
+                { title: t.tiers[0][0], desc: t.tiers[0][1], Icon: Unlock, href: "/demo" },
+                { title: t.tiers[1][0], desc: t.tiers[1][1], Icon: Lock, href: "#investor-private" },
+                { title: t.tiers[2][0], desc: t.tiers[2][1], Icon: Shield, href: "#investor-private" }
+              ].map(({ title, desc, Icon, href }) => (
+                <a
+                  key={title}
+                  href={href}
+                  className="group flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/[.035] p-4 transition hover:border-copper-300/40 hover:bg-copper-500/10"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-copper-500/10 text-copper-100">
+                      <Icon size={20} />
+                    </div>
+                    <div>
+                      <div className="font-semibold">{title}</div>
+                      <div className="text-sm text-white/45">{desc}</div>
+                    </div>
                   </div>
-                  <div>
-                    <div className="font-semibold">{title as string}</div>
-                    <div className="text-sm text-white/45">{desc as string}</div>
-                  </div>
-                </div>
+                  <ArrowRight size={18} className="text-white/30 transition group-hover:text-copper-100" />
+                </a>
               ))}
             </div>
           </div>
@@ -581,14 +622,12 @@ export default function Home() {
               <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                 <div>
                   <div className="flex items-center gap-2 text-sm uppercase tracking-[.24em] text-copper-100">
-                    <Activity size={16} /> Demo Access
+                    <Activity size={16} /> {t.demoLabel}
                   </div>
-                  <h3 className="mt-2 text-2xl font-semibold">
-                    {lang === "en" ? "Market Intelligence Dashboard" : "Панель рыночных котировок"}
-                  </h3>
+                  <h3 className="mt-2 text-2xl font-semibold">{t.marketDashboard}</h3>
                 </div>
                 <a href="/demo" className="w-fit rounded-full bg-copper-500/10 px-3 py-1 text-xs uppercase tracking-[.2em] text-copper-100 transition hover:bg-copper-500/20">
-                  {lang === "en" ? "Open Demo" : "Открыть демо"}
+                  {t.openDemo}
                 </a>
               </div>
             </div>
@@ -597,22 +636,18 @@ export default function Home() {
               <div className="rounded-[1.5rem] border border-white/10 bg-black/25 p-5">
                 <div className="mb-5 flex items-center justify-between">
                   <div>
-                    <div className="text-xs uppercase tracking-[.22em] text-white/38">
-                      {lang === "en" ? "Watchlist" : "Список котировок"}
-                    </div>
-                    <div className="mt-1 text-lg font-semibold">
-                      {lang === "en" ? "Metals • Energy • Indices • Mega Caps" : "Metals • Energy • Indices • Mega Caps"}
-                    </div>
+                    <div className="text-xs uppercase tracking-[.22em] text-white/38">{t.watchlist}</div>
+                    <div className="mt-1 text-lg font-semibold">{t.marketSubtitle}</div>
                   </div>
                   <TrendingUp className="text-copper-100" />
                 </div>
 
                 <div className="max-h-[430px] overflow-hidden rounded-2xl border border-white/10">
-                  {marketQuotes.map((row, index) => (
+                  {marketPreview.map((row, index) => (
                     <div
                       key={`${row.name}-${row.ticker}`}
                       className={`grid grid-cols-[1fr_.8fr_.7fr_.6fr] items-center gap-3 px-4 py-3 text-sm ${
-                        index !== marketQuotes.length - 1 ? "border-b border-white/10" : ""
+                        index !== marketPreview.length - 1 ? "border-b border-white/10" : ""
                       }`}
                     >
                       <div>
@@ -635,9 +670,7 @@ export default function Home() {
                   <div className="relative">
                     <div className="flex items-center justify-between">
                       <div>
-                        <div className="text-xs uppercase tracking-[.22em] text-white/38">
-                          {lang === "en" ? "Chart Preview" : "Превью графика"}
-                        </div>
+                        <div className="text-xs uppercase tracking-[.22em] text-white/38">{t.chartPreview}</div>
                         <div className="mt-1 text-xl font-semibold">Copper / Macro Basket</div>
                       </div>
                       <BarChart3 className="text-copper-100" />
@@ -656,23 +689,17 @@ export default function Home() {
                       </svg>
                     </div>
 
-                    <p className="mt-5 text-sm leading-6 text-white/52">
-                      {lang === "en"
-                        ? "Demo version can later be connected to TradingView widgets or a licensed market data API."
-                        : "Демо-версию позже можно подключить к TradingView widgets или лицензированному API рыночных данных."}
-                    </p>
+                    <p className="mt-5 text-sm leading-6 text-white/52">{t.demoText}</p>
                   </div>
                 </div>
 
                 <div className="rounded-[1.5rem] border border-white/10 bg-black/25 p-5">
-                  <div className="mb-4 text-xs uppercase tracking-[.22em] text-white/38">
-                    {lang === "en" ? "Available in Demo" : "Доступно в демо"}
-                  </div>
+                  <div className="mb-4 text-xs uppercase tracking-[.22em] text-white/38">{t.availableDemo}</div>
                   <div className="grid grid-cols-2 gap-3">
-                    {(lang === "en" ? demoModulesEn : demoModulesRu).map((module) => (
-                      <div key={module} className="rounded-xl border border-white/10 bg-white/[.035] p-3 text-sm text-white/62">
+                    {t.demoModules.map((module) => (
+                      <a key={module} href="/demo" className="rounded-xl border border-white/10 bg-white/[.035] p-3 text-sm text-white/62 transition hover:border-copper-300/40 hover:text-white">
                         {module}
-                      </div>
+                      </a>
                     ))}
                   </div>
                 </div>
@@ -680,8 +707,8 @@ export default function Home() {
             </div>
 
             <div id="investor-private" className="grid gap-4 border-t border-white/10 p-5 md:grid-cols-2">
-              {(lang === "en" ? lockedModulesEn : lockedModulesRu).map((module) => {
-                const Icon = module.icon;
+              {t.lockedModules.map((module, index) => {
+                const Icon = index === 0 ? FileText : Shield;
                 return (
                   <div key={module.title} className="rounded-[1.5rem] border border-white/10 bg-black/25 p-5">
                     <div className="flex items-start justify-between gap-4">
@@ -719,7 +746,7 @@ export default function Home() {
               <p className="mt-5 max-w-3xl text-lg leading-8 text-white/62">{t.contactText}</p>
             </div>
             <div className="grid gap-3">
-              {(lang === "en" ? ["Geneva, Switzerland", "Dubai, UAE", "Central Asia"] : ["Женева, Швейцария", "Дубай, ОАЭ", "Центральная Азия"]).map((office) => (
+              {t.offices.map((office) => (
                 <div key={office} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-black/20 p-4">
                   <MapPin className="text-copper-100" size={18} />
                   <span>{office}</span>
