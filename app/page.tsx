@@ -766,3 +766,29 @@ export default function Home() {
     </main>
   );
 }
+
+
+{
+  title: "Geodrill LLP",
+  location: "Kazakhstan",
+  badge: "INFRASTRUCTURE",
+  tags: [
+    "Drilling services",
+    "Exploration support",
+    "Mining infrastructure",
+  ],
+  description:
+    "Integrated drilling and geological support platform operating across Kazakhstan.",
+},
+{
+  title: "Apollo Resources DMCC",
+  location: "Dubai, UAE",
+  badge: "TRADING",
+  tags: [
+    "Commodity trading",
+    "Offtake structuring",
+    "International flows",
+  ],
+  description:
+    "International commodity trading and strategic metals distribution platform.",
+},
